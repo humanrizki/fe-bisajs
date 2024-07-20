@@ -1,0 +1,7 @@
+kurang kurawal {} => biasa dipergunakan sebagai sintaks/penulisan pemrograman
+    fungsinya: 1. dipergunakan object (khusus json/javascript)
+               2. dipergunakan sebagai pengurung/himpunan fungsional (function, object)
+
+kurung biasa () => biasa dipergunakan sebagai sintaks/penulisan pemrograman
+    fungsinya: 1. dipergunakan untuk himpunan nilai variabel (Parameter), biasa ditemukan di fungsi
+               2. dipergunakan untuk menandakan sebuah alur fungsional penulisan dikatakan sebuah fungsi
