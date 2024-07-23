@@ -1,19 +1,45 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useState } from "react"
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Callout } from "@radix-ui/themes";
 import { InfoCircleFill } from "react-bootstrap-icons";
+import { useGoogleLogin } from '@react-oauth/google';
 
 function Login(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [messageError, setMessageError] = useState([])
+    const [fieldEmailMessageError, setFieldEmailMessageError] = useState('');
     const [messageSuccess, setMessageSuccess] = useState('')
     const [cookies, setCookie] = useCookies(['user'])
     const navigate = useNavigate()
 
+    async function handleLoginGoogle(response){
+        if (response) {
+            await axios
+                .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${response.access_token}`, {
+                    headers: {
+                        Authorization: `Bearer ${response.access_token}`,
+                        Accept: 'application/json'
+                    }
+                })
+                .then((res) => {
+                    handleUserRegister(res.data);
+                })
+                .catch((err) => console.log(err));
+        }
+    }
+
+    const loginGoogle = useGoogleLogin({
+        onSuccess: (codeResponse) => {
+            handleLoginGoogle(codeResponse)
+            console.log(codeResponse)
+        },
+        onError: (error) => console.log('Login Failed:', error)
+    });
+    
     async function handleLogin() {
         setIsLoading(true)
         await axios.post('http://be-bisajs.test/api/users/login', {email, password})
@@ -28,10 +54,29 @@ function Login(){
         })
         .catch((error) => { console.log(error) })
     }
+    async function handleUserRegister(user) {
+        setIsLoading(true)
+        await axios.post('http://be-bisajs.test/api/users/register/oauth-google', {
+            "name": user.name,
+            "email": user.email,
+            "avatar": user.picture,
+            "gauth_id": user.id,
+        })
+        .then(response => {
+            console.log(response)
+            setCookie('user', response.data.user, { path: '/' })
+            setCookie('token', response.data.access_token, { path: '/' })
+            setIsLoading(false)
+            setMessageSuccess(response.data.message)
+            setTimeout(()=>{
+                navigate('/')
+            }, 3000)
+        })
+        .catch((error) => { console.log(error) })
+    }
     const submitForm = () =>{
         event.preventDefault()
         handleLogin({ email, password })
-        // navigate('/')
     }
     return (
         <>
@@ -72,12 +117,17 @@ function Login(){
                             <p>Wait for automatic direct to Home</p>
                         </> :
                         <>
-                            <button type="submit" className="p-2 rounded shadow shadow-white">
+                            <button type="submit" className="p-2 rounded shadow shadow-white w-full">
                                 Login
                             </button>
                         </>}
+                        <hr className="my-3"/>
+                        
                         
                     </form>
+                    {!isLoading && 
+                        <button className="p-2 rounded shadow shadow-white w-full" onClick={loginGoogle}>Sign in with Google 🚀 </button>
+                    }
                 </div>
             </div>
         </>

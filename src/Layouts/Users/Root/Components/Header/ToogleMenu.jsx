@@ -4,6 +4,7 @@ import ToogleDarkMode from './ToogleDarkMode'
 import { useCookies } from 'react-cookie'
 import { Avatar, Flex, HoverCard, Text, Box, Heading, Button} from '@radix-ui/themes'
 import axios from 'axios'
+import { googleLogout } from '@react-oauth/google'
 function ToogleMenu({stateNavMobile, setStateNavMobile}){
     const [cookies, _, removeCookie] = useCookies(['user'])
     const navigate = useNavigate()
@@ -17,6 +18,7 @@ function ToogleMenu({stateNavMobile, setStateNavMobile}){
         })
         .then(response => response.data.message)
         .catch((error) => { console.log(error) })
+        googleLogout()
         removeCookie('user', { path: '/' })
         removeCookie('token', { path: '/' })
         console.log(message)
@@ -34,7 +36,7 @@ function ToogleMenu({stateNavMobile, setStateNavMobile}){
                 <Text>
                     <HoverCard.Root>
                     <HoverCard.Trigger>
-                        <Avatar fallback={cookies.user.username.charAt(0)} radius='full' src="https://pbs.twimg.com/profile_images/1337055608613253126/r_eiMp2H_400x400.png"/>
+                        <Avatar fallback={cookies.user.username.charAt(0)} radius='full' src={cookies.user.avatar ? cookies.user.avatar : "https://pbs.twimg.com/profile_images/1337055608613253126/r_eiMp2H_400x400.png"}/>
                     </HoverCard.Trigger>
                     <HoverCard.Content maxWidth="300px">
                         <Flex gap="4">
@@ -42,7 +44,7 @@ function ToogleMenu({stateNavMobile, setStateNavMobile}){
                             size="1"
                             fallback="R"
                             radius="full"
-                            src="https://pbs.twimg.com/profile_images/1337055608613253126/r_eiMp2H_400x400.png"
+                            src={cookies.user.avatar ? cookies.user.avatar : "https://pbs.twimg.com/profile_images/1337055608613253126/r_eiMp2H_400x400.png"}
                         />
                         <Box>
                             <Heading size="2" as="h3">
@@ -56,7 +58,8 @@ function ToogleMenu({stateNavMobile, setStateNavMobile}){
                             React components, icons, and colors for building high-quality,
                             accessible UI.
                             </Text> */}
-                            <Button onClick={onHandlerLogout} color='red' my="3">Logout</Button>
+                            <hr />
+                            <button onClick={onHandlerLogout} className='w-full py-2 px-4 border border-slate-600 mt-2 hover:bg-slate-800'>Logout</button>
                         </Box>
                         </Flex>
                     </HoverCard.Content>
