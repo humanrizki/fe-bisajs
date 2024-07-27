@@ -1,6 +1,6 @@
 function Footer(){
     return (
-        <footer className='landing-page__footer w-full py-28 bg-slate-900 text-white'>
+        <footer className='landing-page__footer w-full py-28 bg-slate-900 text-white m-0'>
             <div className='w-10/12 mx-auto flex flex-col md:flex-row justify-between'>
                 <div className='letter-mark mb-4'>
                     <h1 className='text-2xl font-medium'>BISAJS</h1>

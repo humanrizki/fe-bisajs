@@ -3,21 +3,209 @@
 @tailwind utilities;
 
 @layer base {
-    h1 {
-        @apply text-2xl;
+    /* .app-container html {
+      @apply text-base;
     }
-    h2 {
-        @apply text-xl;
-    }
-    p {
-        @apply text-base w-full mx-auto text-slate-800 dark:text-slate-400;
-    }
-    /* ul {
-
+  
+    .app-container body {
+      @apply m-2;
     } */
-}
+  
+    .app-container h1 {
+      @apply block text-2xl m-3;
+    }
+  
+    .app-container h2 {
+      @apply block text-xl m-3;
+    }
+  
+    .app-container h3 {
+      @apply block text-lg m-4;
+    }
+  
+    .app-container h4 {
+      @apply block text-base m-5;
+    }
+  
+    .app-container h5 {
+      @apply block text-sm m-6;
+    }
+  
+    .app-container h6 {
+      @apply block text-xs m-7;
+    }
+  
+    .app-container p {
+      @apply block m-4;
+    }
+  
+    .app-container a {
+      @apply text-blue-600 cursor-pointer underline;
+    }
+  
+    .app-container ul {
+      @apply block list-disc m-4 pl-10;
+    }
+  
+    .app-container ol {
+      @apply block list-decimal m-4 pl-10;
+    }
+  
+    .app-container li {
+      @apply list-item;
+    }
+  
+    .app-container table {
+      @apply table border-separate border-spacing-2 border-gray-400;
+    }
+  
+    .app-container th {
+      @apply table-cell font-bold text-center align-middle;
+    }
+  
+    .app-container td {
+      @apply table-cell text-left align-middle;
+    }
+  
+    .app-container caption {
+      @apply table-caption text-center;
+    }
+  
+    .app-container strong {
+      @apply font-bold;
+    }
+  
+    .app-container em, .app-container i {
+      @apply italic;
+    }
+  
+    .app-container b {
+      @apply font-bold;
+    }
+  
+    .app-container u {
+      @apply underline;
+    }
+  
+    .app-container small {
+      @apply text-sm;
+    }
+  
+    .app-container sub {
+      @apply align-sub text-xs;
+    }
+  
+    .app-container sup {
+      @apply align-super text-xs;
+    }
+  
+    .app-container blockquote {
+        @apply italic text-gray-600 pl-4 border-l-4 border-gray-300;
+        position: relative;
+    }
+
+    .app-container blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1em; /* Adjust the position as needed */
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background-color: #d3d3d3; /* Adjust the color as needed */
+      }
+  
+    .app-container pre {
+      @apply block font-mono whitespace-pre m-4;
+    }
+  
+    .app-container address {
+      @apply block italic;
+    }
+  
+    .app-container q {
+      @apply inline;
+    }
+  
+    .app-container abbr {
+      @apply underline decoration-dotted;
+    }
+  
+    .app-container cite, .app-container dfn, .app-container var {
+      @apply italic;
+    }
+  
+    .app-container code, .app-container kbd, .app-container samp {
+      @apply font-mono;
+    }
+  
+    .app-container mark {
+      @apply bg-yellow-300 text-black;
+    }
+  
+    .app-container time {
+      @apply normal-case;
+    }
+  
+    .app-container s, .app-container del {
+      @apply line-through;
+    }
+  
+    .app-container ins {
+      @apply underline;
+    }
+  
+    .app-container hr {
+      @apply block my-2 mx-auto border-inset border;
+    }
+  
+    .app-container img {
+      @apply inline-block border-none;
+    }
+  
+    .app-container figure {
+      @apply block m-4 ml-10;
+    }
+  
+    .app-container figcaption {
+      @apply block text-center;
+    }
+  
+    .app-container button, .app-container input, .app-container textarea, .app-container select {
+      @apply inline-block p-1.5;
+    }
+  
+    .app-container button {
+      @apply cursor-pointer;
+    }
+  
+    .app-container label {
+      @apply cursor-default;
+    }
+  
+    .app-container fieldset {
+      @apply block m-1 p-2 border-2 border-groove;
+    }
+  
+    .app-container legend {
+      @apply block p-1 border-none;
+    }
+  
+    .app-container form {
+      @apply block mt-0;
+    }
+  }
+
 @layer components{
     .ql-syntax {
         @apply w-11/12 bg-slate-800;
     }
+}
+
+@layer utilities{
+    .border-inset {
+        border-style: inset;
+      }
+      .border-groove {
+        border-style: groove;
+      }
 }

@@ -30,8 +30,8 @@ function Courses(){
         onTextChange={setLastChange}
         setContent={setContent}
       />
-      <div>
-        <h1 className="text-xl font-bold flex justify-center mt-8">Preview</h1>
+      <div className="app-container w-1/2">
+        <h1>Preview</h1>
         <div dangerouslySetInnerHTML={{ __html: content }}></div>
       </div>
     </>

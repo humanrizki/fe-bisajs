@@ -9,7 +9,7 @@ function Home(){
     const [cookies, _] = useCookies(['user'])
     console.log(cookies.user)
     return (
-        <div className="dark:bg-slate-950 dark:text-white text-slate-800 dark:border-white">
+        <div className="dark:bg-slate-950 dark:text-white text-slate-800 dark:border-white h-full w-full">
             <Header/>
             <Welcome/>
             <AllCourses/>
