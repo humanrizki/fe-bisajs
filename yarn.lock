@@ -391,6 +391,11 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.2.4.tgz#1d459cee5031893a08a0e064c406ad2130cced7c"
   integrity sha512-dWO2pw8hhi+WrXq1YJy2yCuWoL20PddgGaqTgVe4cOS9Q6qklXCiA1tJEqX6BEwRNSCP84/afac9hd4MS+zEUA==
 
+"@fontsource/inter@^5.0.20":
+  version "5.0.20"
+  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-5.0.20.tgz#968436ab21f05d3b3cb3191fa0958d91e37dde43"
+  integrity sha512-rtw2F7xfM7rJmmnncXnR4ADr5wXsp4GyN1O1jmQJ1PMjAK+bm620/ZkQkeOYOkGoa09OksGinOeMA+Mkt6K9PQ==
+
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.14.tgz#d78e481a039f7566ecc9660b4ea7fe6b1fec442b"
@@ -1448,6 +1453,19 @@ axios@^1.7.2:
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
+babel-plugin-add-module-exports@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-add-module-exports/-/babel-plugin-add-module-exports-0.2.1.tgz#9ae9a1f4a8dc67f0cdec4f4aeda1e43a5ff65e25"
+  integrity sha512-3AN/9V/rKuv90NG65m4tTHsI04XrCKsWbztIcW7a8H5iIN7WlvWucRtVV0V/rT4QvtA11n5Vmp20fLwfMWqp6g==
+
+babel-runtime@^6.26.0:
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
+  integrity sha512-ITKNuq2wKlW1fJg9sSW52eepoYgZBggvOAHC0u/CYu/qxQ9EVzThCgR69BnSXLHjy2f7SY5zaQ4yt7H9ZVxY2g==
+  dependencies:
+    core-js "^2.4.0"
+    regenerator-runtime "^0.11.0"
+
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
@@ -1613,6 +1631,11 @@ cookie@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.6.0.tgz#2798b04b071b0ecbff0dbb62a505a8efa4e19051"
   integrity sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==
+
+core-js@^2.4.0:
+  version "2.6.12"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
+  integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
 cross-spawn@^7.0.0, cross-spawn@^7.0.2:
   version "7.0.3"
@@ -2105,6 +2128,11 @@ file-entry-cache@^6.0.1:
   integrity sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==
   dependencies:
     flat-cache "^3.0.4"
+
+file-saver@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/file-saver/-/file-saver-2.0.5.tgz#d61cfe2ce059f414d899e9dd6d4107ee25670c38"
+  integrity sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==
 
 fill-range@^7.1.1:
   version "7.1.1"
@@ -3114,6 +3142,14 @@ quill-delta@^5.1.0:
     lodash.clonedeep "^4.5.0"
     lodash.isequal "^4.5.0"
 
+quill-table@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/quill-table/-/quill-table-1.0.0.tgz#b7938dc5dfb03431b570893016f721b10d119de1"
+  integrity sha512-ZE3+p+leMg8o7Whmku/bcDAS30WLd9ISQR9rV7aN+kIwoJ8e+VkPx7FcqmmHwbjpKfymJnpScyu/Sb+SRqgChw==
+  dependencies:
+    babel-plugin-add-module-exports "^0.2.1"
+    babel-runtime "^6.26.0"
+
 quill@^1.3.7:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/quill/-/quill-1.3.7.tgz#da5b2f3a2c470e932340cdbf3668c9f21f9286e8"
@@ -3271,6 +3307,11 @@ reflect.getprototypeof@^1.0.4:
     get-intrinsic "^1.2.4"
     globalthis "^1.0.3"
     which-builtin-type "^1.1.3"
+
+regenerator-runtime@^0.11.0:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
+  integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
 
 regexp.prototype.flags@^1.5.1, regexp.prototype.flags@^1.5.2:
   version "1.5.2"

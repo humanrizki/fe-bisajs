@@ -10,7 +10,7 @@ function ToogleMenu({stateNavMobile, setStateNavMobile}){
     const navigate = useNavigate()
     
     async function onHandlerLogout(){
-        const message = await axios.post('http://be-bisajs.test/api/users/logout', {}, {
+        const message = await axios.post(`${import.meta.env.API_URL}/api/users/logout`, {}, {
             headers:{
                 'Accept':'application\json',
                 'Authorization':`Bearer ${cookies.token}`
@@ -26,6 +26,7 @@ function ToogleMenu({stateNavMobile, setStateNavMobile}){
     return (
         <>
             <div className="bisa-js__toggle md:hidden block p-2">
+                <ToogleDarkMode/>
                 <button className="" onClick={setStateNavMobile.bind(this, stateNavMobile === 'open' ? 'close' : 'open')}>{stateNavMobile === 'open' ? <X size={40}/> : <FilterRight size={40}/>}</button>
             </div>
 

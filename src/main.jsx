@@ -6,8 +6,9 @@ import '@radix-ui/themes/styles.css';
 import router from './web/router.jsx'
 import { Theme } from '@radix-ui/themes'
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import "@fontsource/inter";
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <GoogleOAuthProvider clientId='798016195785-7oe354odp03nr7726657fgtcfnjbbuku.apps.googleusercontent.com' >
+  <GoogleOAuthProvider clientId={import.meta.env.GOOGLE_CLIENT_ID} >
     <React.StrictMode>
       <Theme >
         <RouterProvider router={router} />

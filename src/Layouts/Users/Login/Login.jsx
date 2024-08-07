@@ -11,6 +11,7 @@ function Login(){
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [messageError, setMessageError] = useState([])
+    const API_URL = import.meta.env.VITE_API_URL;
     const [fieldEmailMessageError, setFieldEmailMessageError] = useState('');
     const [messageSuccess, setMessageSuccess] = useState('')
     const [cookies, setCookie] = useCookies(['user'])
@@ -42,7 +43,13 @@ function Login(){
     
     async function handleLogin() {
         setIsLoading(true)
-        await axios.post('http://be-bisajs.test/api/users/login', {email, password})
+        await axios.post(`${API_URL}/api/users/login`, {email, password}, {
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": 'applications/json',
+                "ngrok-skip-browser-warning": "69420"
+            }
+        })
         .then(response => {
             setCookie('user', response.data.user, { path: '/' })
             setCookie('token', response.data.access_token, { path: '/' })
@@ -56,11 +63,17 @@ function Login(){
     }
     async function handleUserRegister(user) {
         setIsLoading(true)
-        await axios.post('http://be-bisajs.test/api/users/register/oauth-google', {
+        await axios.post(`${API_URL}/api/users/register/oauth-google`, {
             "name": user.name,
             "email": user.email,
             "avatar": user.picture,
             "gauth_id": user.id,
+        }, {
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": 'applications/json',
+                "ngrok-skip-browser-warning": "69420"
+            }
         })
         .then(response => {
             console.log(response)

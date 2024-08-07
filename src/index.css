@@ -115,7 +115,7 @@
       }
   
     .app-container pre {
-      @apply block font-mono whitespace-pre m-4;
+      @apply font-mono whitespace-pre-wrap m-4 text-white p-2 bg-slate-800 break-words;
     }
   
     .app-container address {
@@ -135,7 +135,7 @@
     }
   
     .app-container code, .app-container kbd, .app-container samp {
-      @apply font-mono;
+      @apply font-mono whitespace-pre;
     }
   
     .app-container mark {

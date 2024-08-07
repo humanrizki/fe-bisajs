@@ -3,7 +3,6 @@ import Logo from "./Logo";
 import Navbar from "./Navbar";
 import ToogleMenu from "./ToogleMenu";
 import NavbarMobile from "./NavbarMobile";
-import ToogleDarkMode from "./ToogleDarkMode";
 
 function Header(){
     const [stateNavMobile, setStateNavMobile] = useState('close')
@@ -15,7 +14,8 @@ function Header(){
                     <Navbar/>
                     <ToogleMenu stateNavMobile={stateNavMobile} setStateNavMobile={setStateNavMobile}/>
                 </div>
-                {stateNavMobile === 'open' ? <NavbarMobile/> : <></>}
+              
+            {stateNavMobile === 'open' ? <NavbarMobile/> : <></>}
             </header>
         </>
     )
